@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed System</title>
+    <link rel="icon" type="image/jpeg" href="/images/Kalamoon Logo1.png" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="app">
+      <!--Start Header -->
+      <header class="app-header">
+        <div class="logo">
+          <img src="/images/Kalamoon Logo1.png" alt="Kalamoon Logo" />
+          <h1
+            class="app-title"
+            data-ar="نظام التوزيع"
+            data-en="Distribution System"
+          >
+            Distribution System
+          </h1>
+        </div>
+
+        <div class="header-right">
+          <ul class="nav-tabs">
+            <li class="nav-tab active">
+              <a
+                href="#observer"
+                onclick="openPage('observer')"
+                data-ar="توزيع المراقبات"
+                data-en="Observer Distribution"
+                >Observer Distribution</a
+              >
+            </li>
+            <li class="nav-tab">
+              <a
+                href="#convert"
+                onclick="openPage('convert')"
+                data-ar="محول Excel إلى PDF"
+                data-en="Excel to PDF Converter"
+                >Excel to PDF Converter</a
+              >
+            </li>
+            <li class="nav-tab">
+              <a
+                href="#howtouse"
+                onclick="openPage('howtouse')"
+                data-ar="دليل الاستخدام"
+                data-en="How to Use"
+                >How to Use</a
+              >
+            </li>
+          </ul>
+          <button
+            id="global-language-toggle"
+            class="global-language-toggle-btn"
+          >
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">ar</span>
+          </button>
+        </div>
+      </header>
+      <!--End Header -->
+      <!-- Start Main Content -->
+      <main class="app-main page" id="observer-page" style="display: block">
+        <!-- Upload Area -->
+        <section class="upload-area">
+          <!-- File 1 -->
+          <div class="upload-card">
+            <label class="upload-label drag-area">
+              <span class="upload-icon">📄</span>
+              <span class="upload-title" data-ar="المراقبين" data-en="Observer"
+                >Observer</span
+              >
+              <input
+                type="file"
+                class="upload-input"
+                id="observer-file"
+                accept=".xls,.xlsx"
+              />
+              <span
+                class="upload-filename"
+                data-ar="لم يتم اختيار ملف"
+                data-en="No file selected"
+                >No file selected</span
+              >
+            </label>
+            <div class="description">
+              <div class="description-file">
+                <h3
+                  class="description-title"
+                  data-ar="ملف المراقبين"
+                  data-en="Observers File"
+                >
+                  Observers File
+                </h3>
+                <p
+                  class="description-main"
+                  data-ar="قم برفع الملف الذي يحتوي على جميع المراقبين (اسم المراقب مع الدرجة العلمية، الكلية، وساعات العمل)."
+                  data-en="Upload the file containing all the supervisors (supervisor's name with academic degree, college, and working hours)."
+                >
+                  Upload the file containing all the supervisors (supervisor's
+                  name with academic degree, college, and working hours).
+                </p>
+              </div>
+              <div class="step-badge">
+                <p
+                  data-ar="يرجى التأكد من أن ملف المراقبين يتبع التنسيق المطلوب للمعالجة الدقيقة."
+                  data-en="Please make sure the Observer file follows the required format for accurate processing."
+                >
+                  Please make sure the Observer file follows the required format
+                  for accurate processing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- File 2 -->
+          <div class="upload-card drag-area">
+            <label class="upload-label">
+              <span class="upload-icon">📄</span>
+              <span
+                class="upload-title"
+                data-ar="القاعات لكل فترة"
+                data-en="Halls per Period"
+                >Halls per Period</span
+              >
+              <input
+                type="file"
+                class="upload-input"
+                id="hall-period-file"
+                accept=".xls,.xlsx"
+              />
+              <span
+                class="upload-filename"
+                data-ar="لم يتم اختيار ملف"
+                data-en="No file selected"
+                >No file selected</span
+              >
+            </label>
+            <div class="description">
+              <div class="description-file">
+                <h3
+                  class="description-title"
+                  data-ar="ملف القاعات والفترات"
+                  data-en="Halls and Periods File"
+                >
+                  Halls and Periods File
+                </h3>
+                <p
+                  class="description-main"
+                  data-ar="قم برفع الملف الذي يحتوي على القاعات المستخدمة في كل فترة امتحان (التاريخ، الفترة، القاعة)."
+                  data-en="Upload the file containing halls used in each exam period (date, period, hall)."
+                >
+                  Upload the file containing halls used in each exam period
+                  (date, period, hall).
+                </p>
+              </div>
+              <div class="step-badge">
+                <p
+                  data-ar="يرجى التأكد من أن ملف القاعات والفترات يتبع التنسيق المطلوب للمعالجة الدقيقة."
+                  data-en="Please make sure the Halls and Periods file follows the required format for accurate processing."
+                >
+                  Please make sure the Halls and Periods file follows the
+                  required format for accurate processing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- File 3 -->
+          <div class="upload-card drag-area">
+            <label class="upload-label">
+              <span class="upload-icon">📄</span>
+              <span
+                class="upload-title"
+                data-ar="سعة القاعات"
+                data-en="Halls Capacity"
+                >Halls Capacity</span
+              >
+              <input
+                type="file"
+                class="upload-input"
+                id="hall-capacity-file"
+                accept=".xls,.xlsx"
+              />
+              <span
+                class="upload-filename"
+                data-ar="لم يتم اختيار ملف"
+                data-en="No file selected"
+                >No file selected</span
+              >
+            </label>
+            <div class="description">
+              <div class="description-file">
+                <h3
+                  class="description-title"
+                  data-ar="ملف سعة القاعات"
+                  data-en="Halls Capacity File"
+                >
+                  Halls Capacity File
+                </h3>
+                <p
+                  class="description-main"
+                  data-ar="قم برفع الملف الذي يحتوي على سعة كل قاعة (اسم القاعة، عدد الطلاب)."
+                  data-en="Upload the file containing the capacity of each hall (hall name, number of students)."
+                >
+                  Upload the file containing the capacity of each hall (hall
+                  name, number of students).
+                </p>
+              </div>
+              <div class="step-badge">
+                <p
+                  data-ar="يرجى التأكد من أن ملف سعة القاعات يتبع التنسيق المطلوب للمعالجة الدقيقة."
+                  data-en="Please make sure the Halls Capacity file follows the required format for accurate processing."
+                >
+                  Please make sure the Halls Capacity file follows the required
+                  format for accurate processing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <section class="action-buttons observer-actions">
+          <button
+            type="button"
+            class="btn btn--primary generate-pdf-btn"
+            data-mode="observer"
+            data-ar="توليد PDF"
+            data-en="Generate PDF"
+          >
+            Generate PDF
+          </button>
+
+          <button
+            type="button"
+            class="btn btn--success generate-excel-btn"
+            data-ar="توليد Excel"
+            data-en="Generate Excel"
+          >
+            Generate Excel
+          </button>
+        </section>
+      </main>
+      <!-- End Main Content -->
+      <!-- Start convert-app -->
+      <main class="page convert-app" id="convert-page" style="display: none">
+        <div class="upload-card drag-area">
+          <label class="upload-label">
+            <span class="upload-icon">📄</span>
+            <span
+              class="upload-title"
+              data-ar="الملف بعد التحديث"
+              data-en="File after Updated"
+              >File after Updated</span
+            >
+            <input
+              type="file"
+              class="upload-input"
+              id="hall-period"
+              accept=".xls,.xlsx"
+            />
+            <span
+              class="upload-filename"
+              data-ar="لم يتم اختيار ملف"
+              data-en="No file selected"
+              >No file selected</span
+            >
+          </label>
+          <div class="description">
+            <div class="description-file">
+              <h3
+                class="description-title"
+                data-ar="ملف Excel المحدث"
+                data-en="Updated Excel File"
+              >
+                Updated Excel File
+              </h3>
+              <p
+                class="description-main"
+                data-ar="قم برفع ملف Excel الذي تم تحديثه مسبقاً ويحتوي على بيانات المراقبات (المراقب، الدرجة، الكلية، التاريخ، الفترة، النوع، القاعة)."
+                data-en="Upload a previously updated Excel file containing monitoring data (observer, degree, college, date, period, type, hall)."
+              >
+                Upload a previously updated Excel file containing monitoring
+                data (observer, degree, college, date, period, type, hall).
+              </p>
+            </div>
+            <div class="step-badge">
+              <p
+                data-ar="يرجى التأكد من أن ملف Excel يتبع التنسيق المطلوب للمعالجة الدقيقة."
+                data-en="Please make sure the Excel file follows the required format for accurate processing."
+              >
+                Please make sure the Excel file follows the required format for
+                accurate processing.
+              </p>
+            </div>
+          </div>
+        </div>
+        <section class="action-buttons convert-actions">
+          <button
+            type="button"
+            class="btn btn--primary generate-pdf-btn"
+            data-mode="convert"
+            data-ar="توليد PDF"
+            data-en="Generate PDF"
+          >
+            Generate PDF
+          </button>
+        </section>
+      </main>
+      <!-- End convert-app -->
+      <!-- Start hotouse-app -->
+      <main class="page hotouse-app" id="howtouse-page" style="display: none">
+        <div class="how-to-use-container">
+          <h1
+            class="how-to-title"
+            data-ar="دليل الاستخدام"
+            data-en="User Guide"
+          >
+            دليل الاستخدام
+          </h1>
+          <p
+            class="how-to-subtitle"
+            data-ar="اتبع الخطوات التالية لاستخدام نظام توزيع المراقبات"
+            data-en="Follow the steps below to use the exam monitoring distribution system"
+          >
+            اتبع الخطوات التالية لاستخدام نظام توزيع المراقبات
+          </p>
+
+          <!-- Observer Distribution Section -->
+          <section class="guide-section">
+            <div class="section-header">
+              <div class="section-icon">📊</div>
+              <h2
+                class="section-title"
+                data-ar="توزيع المراقبات (Observer Distribution)"
+                data-en="Observer Distribution"
+              >
+                توزيع المراقبات (Observer Distribution)
+              </h2>
+            </div>
+
+            <div class="steps-container">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="رفع ملف المراقبين"
+                    data-en="Upload Observers File"
+                  >
+                    رفع ملف المراقبين
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="قم برفع ملف Excel يحتوي على بيانات المراقبين (الاسم، الدرجة العلمية، الكلية، أيام العمل)"
+                    data-en="Upload an Excel file containing observer data (name, degree, college, working days)"
+                  >
+                    قم برفع ملف Excel يحتوي على بيانات المراقبين (الاسم، الدرجة
+                    العلمية، الكلية، أيام العمل)
+                  </p>
+                  <div class="step-note">
+                    <strong data-ar="ملاحظة:" data-en="Note:">ملاحظة:</strong>
+                    <span
+                      data-ar="يجب أن يحتوي الملف على شيتين (Sheet1 و Sheet2)"
+                      data-en="The file must contain two sheets (Sheet1 and Sheet2)"
+                      >يجب أن يحتوي الملف على شيتين (Sheet1 و Sheet2)</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="رفع ملف القاعات والفترات"
+                    data-en="Upload Halls and Periods File"
+                  >
+                    رفع ملف القاعات والفترات
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="قم برفع ملف Excel يحتوي على القاعات المستخدمة في كل فترة امتحان (التاريخ، الفترة، القاعة)"
+                    data-en="Upload an Excel file containing halls used in each exam period (date, period, hall)"
+                  >
+                    قم برفع ملف Excel يحتوي على القاعات المستخدمة في كل فترة
+                    امتحان (التاريخ، الفترة، القاعة)
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="رفع ملف سعة القاعات"
+                    data-en="Upload Halls Capacity File"
+                  >
+                    رفع ملف سعة القاعات
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="قم برفع ملف Excel يحتوي على سعة كل قاعة (اسم القاعة، عدد الطلاب)"
+                    data-en="Upload an Excel file containing the capacity of each hall (hall name, number of students)"
+                  >
+                    قم برفع ملف Excel يحتوي على سعة كل قاعة (اسم القاعة، عدد
+                    الطلاب)
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="توليد الملفات"
+                    data-en="Generate Files"
+                  >
+                    توليد الملفات
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="بعد رفع جميع الملفات، يمكنك:"
+                    data-en="After uploading all files, you can:"
+                  >
+                    بعد رفع جميع الملفات، يمكنك:
+                  </p>
+                  <ul class="step-list">
+                    <li
+                      data-ar='الضغط على "Generate PDF" لتوليد ملفات PDF (المراقبات، الكليات، القاعات)'
+                      data-en='Click "Generate PDF" to generate PDF files (monitors, colleges, halls)'
+                    >
+                      الضغط على <strong>"Generate PDF"</strong> لتوليد ملفات PDF
+                      (المراقبات، الكليات، القاعات)
+                    </li>
+                    <li
+                      data-ar='الضغط على "Generate Excel" لتوليد ملف Excel واحد يحتوي على جميع التوزيعات'
+                      data-en='Click "Generate Excel" to generate a single Excel file containing all distributions'
+                    >
+                      الضغط على <strong>"Generate Excel"</strong> لتوليد ملف
+                      Excel واحد يحتوي على جميع التوزيعات
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="تحميل الملفات"
+                    data-en="Download Files"
+                  >
+                    تحميل الملفات
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="بعد اكتمال المعالجة، ستظهر روابط لتحميل جميع الملفات المولدة"
+                    data-en="After processing is complete, download links for all generated files will appear"
+                  >
+                    بعد اكتمال المعالجة، ستظهر روابط لتحميل جميع الملفات المولدة
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Excel to PDF Converter Section -->
+          <section class="guide-section">
+            <div class="section-header">
+              <div class="section-icon">🔄</div>
+              <h2
+                class="section-title"
+                data-ar="محول Excel إلى PDF (Excel to PDF Converter)"
+                data-en="Excel to PDF Converter"
+              >
+                محول Excel إلى PDF (Excel to PDF Converter)
+              </h2>
+            </div>
+
+            <div class="steps-container">
+              <div class="step-card">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="رفع ملف Excel المحدث"
+                    data-en="Upload Updated Excel File"
+                  >
+                    رفع ملف Excel المحدث
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="قم برفع ملف Excel الذي تم تحديثه مسبقاً ويحتوي على بيانات المراقبات"
+                    data-en="Upload a previously updated Excel file containing monitoring data"
+                  >
+                    قم برفع ملف Excel الذي تم تحديثه مسبقاً ويحتوي على بيانات
+                    المراقبات
+                  </p>
+                  <div class="step-note">
+                    <strong data-ar="تنسيق الملف:" data-en="File Format:"
+                      >تنسيق الملف:</strong
+                    >
+                    <span
+                      data-ar="يجب أن يحتوي على الأعمدة التالية:"
+                      data-en="Must contain the following columns:"
+                      >يجب أن يحتوي على الأعمدة التالية:</span
+                    >
+                    <ul class="step-list">
+                      <li data-ar="المراقب" data-en="Observer">المراقب</li>
+                      <li data-ar="الدرجة" data-en="Degree">الدرجة</li>
+                      <li data-ar="الكلية" data-en="College">الكلية</li>
+                      <li data-ar="التاريخ" data-en="Date">التاريخ</li>
+                      <li data-ar="الفترة" data-en="Period">الفترة</li>
+                      <li
+                        data-ar="النوع (أساسي/احتياط)"
+                        data-en="Type (Main/Reserve)"
+                      >
+                        النوع (أساسي/احتياط)
+                      </li>
+                      <li data-ar="القاعة" data-en="Hall">القاعة</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="توليد PDF"
+                    data-en="Generate PDF"
+                  >
+                    توليد PDF
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar='اضغط على زر "Generate PDF" لتحويل الملف إلى PDF'
+                    data-en='Click the "Generate PDF" button to convert the file to PDF'
+                  >
+                    اضغط على زر <strong>"Generate PDF"</strong> لتحويل الملف إلى
+                    PDF
+                  </p>
+                </div>
+              </div>
+
+              <div class="step-card">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h3
+                    class="step-title"
+                    data-ar="تحميل الملفات"
+                    data-en="Download Files"
+                  >
+                    تحميل الملفات
+                  </h3>
+                  <p
+                    class="step-description"
+                    data-ar="بعد اكتمال المعالجة، ستظهر روابط لتحميل:"
+                    data-en="After processing is complete, download links will appear for:"
+                  >
+                    بعد اكتمال المعالجة، ستظهر روابط لتحميل:
+                  </p>
+                  <ul class="step-list">
+                    <li data-ar="ملف PDF للمراقبات" data-en="Monitors PDF file">
+                      ملف PDF للمراقبات
+                    </li>
+                    <li
+                      data-ar="ملفات PDF لكل كلية"
+                      data-en="PDF files for each college"
+                    >
+                      ملفات PDF لكل كلية
+                    </li>
+                    <li data-ar="ملف PDF للقاعات" data-en="Halls PDF file">
+                      ملف PDF للقاعات
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Tips Section -->
+          <section class="guide-section tips-section">
+            <div class="section-header">
+              <div class="section-icon">💡</div>
+              <h2
+                class="section-title"
+                data-ar="نصائح مهمة"
+                data-en="Important Tips"
+              >
+                نصائح مهمة
+              </h2>
+            </div>
+
+            <div class="tips-grid">
+              <div class="tip-card">
+                <div class="tip-icon">✅</div>
+                <h3
+                  class="tip-title"
+                  data-ar="تأكد من صحة البيانات"
+                  data-en="Verify Data Accuracy"
+                >
+                  تأكد من صحة البيانات
+                </h3>
+                <p
+                  class="tip-text"
+                  data-ar="تأكد من أن جميع البيانات في ملفات Excel صحيحة ومكتملة قبل الرفع"
+                  data-en="Ensure all data in Excel files is correct and complete before uploading"
+                >
+                  تأكد من أن جميع البيانات في ملفات Excel صحيحة ومكتملة قبل
+                  الرفع
+                </p>
+              </div>
+
+              <div class="tip-card">
+                <div class="tip-icon">📋</div>
+                <h3
+                  class="tip-title"
+                  data-ar="التنسيق المطلوب"
+                  data-en="Required Format"
+                >
+                  التنسيق المطلوب
+                </h3>
+                <p
+                  class="tip-text"
+                  data-ar="تأكد من أن ملفات Excel تتبع التنسيق المطلوب كما هو موضح في التعليمات"
+                  data-en="Ensure Excel files follow the required format as shown in the instructions"
+                >
+                  تأكد من أن ملفات Excel تتبع التنسيق المطلوب كما هو موضح في
+                  التعليمات
+                </p>
+              </div>
+
+              <div class="tip-card">
+                <div class="tip-icon">⏱️</div>
+                <h3 class="tip-title" data-ar="الانتظار" data-en="Please Wait">
+                  الانتظار
+                </h3>
+                <p
+                  class="tip-text"
+                  data-ar="قد تستغرق عملية المعالجة بعض الوقت حسب حجم البيانات، يرجى الانتظار"
+                  data-en="Processing may take some time depending on data size, please wait"
+                >
+                  قد تستغرق عملية المعالجة بعض الوقت حسب حجم البيانات، يرجى
+                  الانتظار
+                </p>
+              </div>
+
+              <div class="tip-card">
+                <div class="tip-icon">💾</div>
+                <h3
+                  class="tip-title"
+                  data-ar="حفظ الملفات"
+                  data-en="Save Files"
+                >
+                  حفظ الملفات
+                </h3>
+                <p
+                  class="tip-text"
+                  data-ar="احفظ جميع الملفات المولدة في مكان آمن للرجوع إليها لاحقاً"
+                  data-en="Save all generated files in a safe place for future reference"
+                >
+                  احفظ جميع الملفات المولدة في مكان آمن للرجوع إليها لاحقاً
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <!-- End hotouse-app -->
+      <!-- Start Loading App -->
+      <main
+        class="page loading-pdf-page"
+        id="loading-pdf-page"
+        style="display: none"
+      >
+        <div class="loading-box">
+          <h2
+            id="loading-title"
+            data-ar="جارٍ معالجة ملفك..."
+            data-en="processing your file..."
+            style="font-size: 40px"
+          >
+            processing your file...
+          </h2>
+
+          <div class="spinner" id="loading-spinner"></div>
+          <p
+            id="loading-text"
+            data-ar="يرجى الانتظار......"
+            data-en="Please wait"
+            style="font-size: 20px; margin: 0 auto"
+          >
+            Please wait...
+          </p>
+
+          <!-- روابط التحميل -->
+          <div id="download-links" style="display: none; margin-top: 40px">
+            <h3
+              style="margin-bottom: 20px; color: var(--teal-bright)"
+              data-ar="تحميل الملفات:"
+              data-en="Download Files:"
+            >
+              Download Files:
+            </h3>
+
+            <!-- رابط ملف المراقبات -->
+            <div
+              id="monitors-pdf-link"
+              style="display: none; margin-bottom: 15px"
+            >
+              <a
+                href="#"
+                id="monitors-pdf-download"
+                class="download-link"
+                target="_blank"
+                data-ar="📄 تحميل ملف PDF للمراقبات"
+                data-en="📄 Download Monitors PDF"
+              >
+                📄 Download Monitors PDF
+              </a>
+            </div>
+
+            <!-- رابط ملف Excel -->
+            <div id="excel-link" style="display: none; margin-bottom: 15px">
+              <a
+                href="#"
+                id="excel-download"
+                class="download-link"
+                target="_blank"
+                data-ar="📊 تحميل ملف Excel"
+                data-en="📊 Download Excel File"
+              >
+                📊 Download Excel File
+              </a>
+            </div>
+
+            <!-- رابط ملف القاعات -->
+            <div id="halls-pdf-link" style="display: none; margin-bottom: 15px">
+              <a
+                href="#"
+                id="halls-pdf-download"
+                class="download-link"
+                target="_blank"
+                data-ar="🏛️ تحميل ملف PDF للقاعات"
+                data-en="🏛️ Download Halls PDF"
+              >
+                🏛️ Download Halls PDF
+              </a>
+            </div>
+
+            <!-- روابط ملفات الكليات -->
+            <div
+              id="colleges-pdf-links"
+              style="display: none; margin-top: 20px"
+            >
+              <h4
+                style="margin-bottom: 15px; color: var(--teal-bright)"
+                data-ar="ملفات PDF للكليات:"
+                data-en="College PDFs:"
+              >
+                College PDFs:
+              </h4>
+              <div
+                id="colleges-list"
+                style="display: flex; flex-direction: column; gap: 10px"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- End Loading App -->
+    </div>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

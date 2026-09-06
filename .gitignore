@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Output files
+output/*
+!output/.gitkeep
+!output/pdfs/.gitkeep
+!output/excel/.gitkeep
+!output/colleges/.gitkeep
+
+# Old files directory
+files/
+exam-monitoring-5/
+
+# Old directories
+algorithms/
+view/
+fonts/
+
+# Old root files
+app.js
+Kalamoon.png
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime*
+.DS_Store
+
+# OS files
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+# Build output
+dist/
+
+# Local Chromium installation
+chrome-win64/
