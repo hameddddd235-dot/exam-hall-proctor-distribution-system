@@ -218,6 +218,42 @@ The PDF generation process includes support for Arabic text and bidirectional te
 
 ---
 
+---
+
+## Screenshots
+
+### Main Distribution Interface
+
+Upload observer information, exam schedules, and hall capacity files before generating the final assignments.
+
+![Main Distribution Interface](assets/images/screenshots/distribution-interface.png)
+
+### File Processing
+
+The system validates and processes uploaded Excel files before running the assignment workflow.
+
+![File Processing](assets/images/screenshots/processing.png)
+
+### Generated Reports
+
+After processing is complete, the system provides downloadable reports for monitors and individual colleges.
+
+![Generated Reports](assets/images/screenshots/generated-results.png)
+
+### Built-in User Guide
+
+The application includes an integrated user guide explaining the required input files and the complete distribution workflow.
+
+![User Guide](assets/images/screenshots/user-guide.png)
+
+### Example PDF Output
+
+The system generates structured Arabic PDF reports containing each proctor's schedule, assignment type, exam period, and hall.
+
+![Example PDF Report](assets/images/screenshots/pdf-report.png)
+
+---
+
 ## Project Structure
 
 ```text
@@ -301,3 +337,4 @@ exam-hall-proctor-distribution-system/
 ├── package-lock.json
 ├── .gitignore
 └── README.md
+```
